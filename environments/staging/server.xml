@@ -10,6 +10,7 @@
 		<feature>managedBeans-1.0</feature>
 		<feature>monitor-1.0</feature>
 		<feature>appSecurity-2.0</feature>
+		<!--No Session Persistence-->
 		<!--<feature>sessionDatabase-1.0</feature>-->
         <feature>jdbc-4.1</feature>
     	<feature>concurrent-1.0</feature>
@@ -83,13 +84,17 @@
 		<properties databaseName="${env.APP_WSBANKDB_NAME}" driverType="4" password="${APP_WSBANKDB_PASSWORD}" portNumber="${env.APP_WSBANKDB_PORT}" serverName="${env.APP_WSBANKDB_HOSTNAME}" user="${env.APP_WSBANKDB_USER}"/>
 		<connectionManager id="jdbc/wsbankdb" maxPoolSize="200" minPoolSize="50"/>
 	</dataSource>
-	<dataSource id="SessionDS" jdbcDriverRef="ease.db2jcc4" jndiName="jdbc/Sessions" type="javax.sql.XADataSource">
+	
+	<!--No Session Persistence-->
+
+<!--	<dataSource id="SessionDS" jdbcDriverRef="ease.db2jcc4" jndiName="jdbc/Sessions" type="javax.sql.XADataSource">
 		<properties databaseName="${env.APP_SESSIONDB_NAME}" driverType="4" password="${APP_SESSIONDB_PASSWORD}" portNumber="${env.APP_SESSIONDB_PORT}" serverName="${env.APP_SESSIONDB_HOSTNAME}" user="${env.APP_SESSIONDB_USER}"/>
 		<connectionManager id="jdbc/Sessions" maxPoolSize="200" minPoolSize="50"/>
-	</dataSource>
-	<httpSessionDatabase dataSourceRef="SessionDS" id="SessionDB"  writeContents="ALL_SESSION_ATTRIBUTES" writeFrequency="END_OF_SERVLET_SERVICE"/>
-    <httpSession cloneId="localhost_cloneID" storageRef="SessionDB"/>
+	</dataSource>-->
 
+<!--	<httpSessionDatabase dataSourceRef="SessionDS" id="SessionDB"  writeContents="ALL_SESSION_ATTRIBUTES" writeFrequency="END_OF_SERVLET_SERVICE"/>
+    <httpSession cloneId="localhost_cloneID" storageRef="SessionDB"/>
+-->
     <webContainer deferServletLoad="false"/>
 
    <transaction/>
